@@ -36,7 +36,7 @@ export default class ParentComponent extends Component {
   }
   render() {
     return (
-      <div className="form-control form-control-lg">
+      <div className="form-control form-control-lg w-50">
         <form>
         <div className='form-group'>
           <input className="form-control" onChange={this.handleInput} type="text" placeholder="What do you need to say?" />

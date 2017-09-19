@@ -8,8 +8,10 @@ export default class BaseLayout extends Component {
     return (
       <div className="container-fluid">
         <Header/>
+        <div className="message">
         <div className="row justify-content-center">
           {this.props.children}
+        </div>
         </div>
         <Footer/>
       </div>
