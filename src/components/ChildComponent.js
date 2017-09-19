@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class ChildComponent extends Component {
   render() {
     return (
-      <div>Dumb Component receiving Props
+      <div>
         <div>
-          <input type="submit" onClick={this.props.onClick}/>
+          <button onClick={this.props.onClick} type="submit" class="btn btn-primary">Submit Message</button>
         </div>
       </div>
     );

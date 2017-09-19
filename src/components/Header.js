@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 export default class Header extends Component {
   render() {
     return (
-      <nav>I am the Navigation Bar</nav>
+  <nav className="navbar">
+    <h1 className="navbar-brand">Share your Message!</h1>
+  </nav>
     );
   }
 }

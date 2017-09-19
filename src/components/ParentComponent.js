@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 
-class ParentComponent extends Component {
+import ChildComponent from './ChildComponent.js'
+import DisplayComponent from './DisplayComponent.js'
+
+export default class ParentComponent extends Component {
   constructor(props){
     super(props);
 
     //we are really in a *bind* here.... :)
     //fix it...
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     //state lives here
     this.state = {
@@ -16,7 +21,8 @@ class ParentComponent extends Component {
   handleInput(e) {
     e.preventDefault();
     //set the state on input change
-    this.setState({whatToSay: this.state.whatToSay});
+    let whatToSay = e.target.value
+    this.setState({whatToSay: whatToSay});
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -30,15 +36,15 @@ class ParentComponent extends Component {
   }
   render() {
     return (
-      <div>Smart Component: I have a function, but something isn't working? I also need to pass that function to the ChildComponent.
-        <div>
-          <input onChange={this.handleInput} type="text" placeholder="Say It, Don't Spray It!" />
+      <div className="form-control form-control-lg">
+        <form>
+        <div className='form-group'>
+          <input className="form-control" onChange={this.handleInput} type="text" placeholder="What do you need to say?" />
         </div>
-        <div>
-          <ChildComponent onClick={"FILL_ME_IN"}/>
-          <DisplayComponent sayWhat={"FILL_ME_IN"} />
+          <ChildComponent onClick={this.handleSubmit}/>
+        </form>
+          <DisplayComponent sayWhat={this.state.whatWasSaid} />
         </div>
-      </div>
     );
   }
 }
